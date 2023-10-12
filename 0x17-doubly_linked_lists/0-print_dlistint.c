@@ -1,11 +1,13 @@
 #include "lists.h"
 
 /**
- * dlistint_len - func that print all element
- * @h: pointer of the list
- * Return: always nodes
+ * print_dlistint - prints all the elements of a
+ * dlistint_t list
+ *
+ * @h: head of the list
+ * Return: the number of nodes
  */
-size_t dlistint_len(const dlistint_t *h)
+size_t print_dlistint(const dlistint_t *h)
 {
 	int x;
 
@@ -19,6 +21,7 @@ size_t dlistint_len(const dlistint_t *h)
 
 	while (h != NULL)
 	{
+		printf("%d\n", h->n);
 		x++;
 		h = h->next;
 	}
