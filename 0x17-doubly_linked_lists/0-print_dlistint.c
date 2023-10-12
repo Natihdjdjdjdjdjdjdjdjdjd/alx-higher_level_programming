@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * print_dlistint - prints all the elements of a
+ * print_dlistint - The func prints all the elements of a
  * dlistint_t list
  *
  * @h: head of the list
@@ -9,12 +9,12 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
-	int x;
+	int c;
 
-	x = 0;
+	c = 0;
 
 	if (h == NULL)
-		return (x);
+		return (c);
 
 	while (h->prev != NULL)
 		h = h->prev;
@@ -22,9 +22,9 @@ size_t print_dlistint(const dlistint_t *h)
 	while (h != NULL)
 	{
 		printf("%d\n", h->n);
-		x++;
+		c++;
 		h = h->next;
 	}
 
-	return (x);
+	return (c);
 }
