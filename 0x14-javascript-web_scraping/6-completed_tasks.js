@@ -10,7 +10,7 @@ request(url, function (myerr, response, body) {
     const completed = {};
     const tasks = JSON.parse(body);
     for (const x in tasks) {
-      const task = tasks[i];
+      const task = tasks[x];
       if (task.completed === true) {
         if (completed[task.userId] === undefined) {
           completed[task.userId] = 1;
