@@ -1,23 +1,24 @@
 #!/usr/bin/node
 
-const URL = process.argv[2];
-const ID = '18';
 const request = require('request');
+const url = process.argv[2];
 
-request.get(URL, (myerror, response, body) => {
-  if (myerror) {
-    console.log(myerror);
-  } else {
-    let pro = 0;
-    const content = JSON.parse(body);
-
-    content.results.forEach((film) => {
-      film.characters.forEach((character) => {
-        if (character.includes(ID)) {
-          pro += 1;
+request(url, function (myerr, response, body) {
+  if (myerr) {
+    console.log(myerr);
+  } else if (response.statusCode === 200) {
+    const films = JSON.parse(body).results;
+    let x = 0;
+    for (const filmIndex in films) {
+      const filmChars = films[filmIndex].characters;
+      for (const charIndex in filmChars) {
+        if (filmChars[charIndex].includes('18')) {
+          x++;
         }
-      });
-    });
-    console.log(pro);
+      }
+    }
+    console.log(x);
+  } else {
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
 });
