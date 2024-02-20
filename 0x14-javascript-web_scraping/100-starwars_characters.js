@@ -14,13 +14,13 @@ my_request.get(URL, (myerror, response, body) => {
   const chars = data.characters;
 
   for (const character of chars) {
-    request(character, (myerror, response, body) => {
+    my_request(character, (myerror, response, bod1y) => {
       if (myerror) {
         console.log(myerror);
         return;
       }
 
-      const datacontent = JSON.parse(body);
+      const datacontent = JSON.parse(bod1y);
       console.log(datacontent.name);
     });
   }
